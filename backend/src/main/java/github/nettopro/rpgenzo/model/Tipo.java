@@ -1,20 +1,18 @@
-package github.nettopro.rpgenzo.model.acoes;
+package github.nettopro.rpgenzo.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import github.nettopro.rpgenzo.model.Tipo;
+import github.nettopro.rpgenzo.model.acoes.Acao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 import lombok.AccessLevel;
@@ -24,10 +22,10 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "acoes")
+@Table(name = "tipos")
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Acao {
+public class Tipo {
 
     @EqualsAndHashCode.Exclude
     @Id
@@ -37,21 +35,12 @@ public class Acao {
     @NotBlank(message = "Necessita de nome!")
     private String nome;
 
-    @Min(value = 0, message = "Custo deve ser maior ou igual a zero!")
-    private Byte acaoCusto;
-
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    @ManyToMany
-    @JoinTable(name = "acao_tipo",
-            joinColumns = @jakarta.persistence.JoinColumn(name = "acao_id"),
-            inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "tipo_id"))
-    private Set<Tipo> acaoTipos = new HashSet<>();
-
     @Column(columnDefinition = "TEXT")
     @Lob
     private String descricao;
 
-    private String requerimento;
-
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "acaoTipos")
+    private Set<Acao> acoes = new HashSet<>();
 }
