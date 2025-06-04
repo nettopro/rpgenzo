@@ -13,28 +13,28 @@ import github.nettopro.rpgenzo.service.acoes.TipoService;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/cadastro")
-public class InserirController {
+@RequestMapping("/tipo")
+public class TipoController {
 
     private final TipoService tipoService;
 
-    public InserirController(TipoService tipoService) {
+    public TipoController(TipoService tipoService) {
         this.tipoService = tipoService;
     }
 
-    @GetMapping("/form-tipo")
+    @GetMapping("/")
     public String mostrarFormulario(Model model) {
         model.addAttribute("tipo", Tipo.builder().build());
         return "tipo-form";
     }
 
-    @PostMapping("/tipo")
+    @PostMapping("/cadastro")
     public String criarTipo(@Valid @ModelAttribute("tipo") Tipo tipo, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             return "tipo-form";
         }
 
         tipoService.criarESalvarTipo(tipo);
-        return "redirect:/cadastro/form-tipo?sucesso";
+        return "redirect:/tipo/?cadastroSucesso";
     }
 }
