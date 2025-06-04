@@ -14,6 +14,7 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=${SPRING_JPA_HIBERNATE_DDL_AUTO}
     volumes:
       - ../backend:/app
+      - ~/.m2:/root/.m2
 
   db:
     image: postgres:17.5  
