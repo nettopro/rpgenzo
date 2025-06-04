@@ -13,7 +13,7 @@ import github.nettopro.rpgenzo.service.acoes.TipoService;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/inserir")
+@RequestMapping("/cadastro")
 public class InserirController {
 
     private final TipoService tipoService;
@@ -35,6 +35,6 @@ public class InserirController {
         }
 
         tipoService.criarESalvarTipo(tipo);
-        return "redirect:/inserir/form-tipo?sucesso";
+        return "redirect:/cadastro/form-tipo?sucesso";
     }
 }

@@ -11,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;

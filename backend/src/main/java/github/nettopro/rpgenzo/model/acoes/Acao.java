@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -47,6 +47,7 @@ public class Acao {
     @JoinTable(name = "acao_tipo",
             joinColumns = @jakarta.persistence.JoinColumn(name = "acao_id"),
             inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "tipo_id"))
+    @NotEmpty(message = "Necessita de pelo menos um tipo!")
     @ToString.Exclude
     private Set<Tipo> acaoTipos = new HashSet<>();
 
