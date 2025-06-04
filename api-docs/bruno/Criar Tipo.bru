@@ -1,0 +1,18 @@
+meta {
+  name: Criar Tipo
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/tipos
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Movimento2",
+    "descricao": "testeee"
+  }
+}
