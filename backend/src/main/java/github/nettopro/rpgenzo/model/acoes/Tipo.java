@@ -32,6 +32,7 @@ public class Tipo {
     @Setter(AccessLevel.NONE)
     private Long id;
 
+    @Column(unique = true)
     @NotBlank(message = "Necessita de nome!")
     private String nome;
 

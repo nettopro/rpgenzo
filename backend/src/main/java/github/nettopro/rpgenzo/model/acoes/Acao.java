@@ -35,6 +35,7 @@ public class Acao {
     @Setter(AccessLevel.NONE)
     private Long id;
 
+    @Column(unique = true)
     @NotBlank(message = "Necessita de nome!")
     private String nome;
 
@@ -62,7 +63,8 @@ public class Acao {
     private String requerimento;
 
     @Builder
-    public Acao(String nome, Byte acaoCusto, Byte acaoLivreCusto, Boolean ehReacao, String descricao, String requerimento) {
+    public Acao(String nome, Byte acaoCusto, Byte acaoLivreCusto, 
+                String descricao,String reacaoAcionamento, String requerimento) {
         this.nome = nome;
         this.descricao = descricao;
         this.acaoCusto = acaoCusto != null ? acaoCusto : 0;
