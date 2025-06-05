@@ -7,15 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import github.nettopro.rpgenzo.model.acoes.Acao;
 import github.nettopro.rpgenzo.repository.acoes.AcaoRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class AcaoService {
 
     private final AcaoRepository acaoRepository;
-
-    public AcaoService(AcaoRepository acaoRepository) {
-        this.acaoRepository = acaoRepository;
-    }
 
     @Transactional
     public Acao criarESalvarAcao(Acao acao) {

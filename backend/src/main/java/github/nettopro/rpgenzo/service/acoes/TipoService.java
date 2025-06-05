@@ -7,15 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import github.nettopro.rpgenzo.model.acoes.Tipo;
 import github.nettopro.rpgenzo.repository.acoes.TipoRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class TipoService {
 
     private final TipoRepository tipoRepository;
-
-    public TipoService(TipoRepository tipoRepository) {
-        this.tipoRepository = tipoRepository;
-    }
 
     @Transactional
     public Tipo criarESalvarTipo(Tipo tipo) {

@@ -16,15 +16,15 @@ import org.springframework.web.server.ResponseStatusException;
 import github.nettopro.rpgenzo.model.acoes.Tipo;
 import github.nettopro.rpgenzo.service.acoes.TipoService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/tipos")
+@RequiredArgsConstructor
 public class TipoRestController {
+    
     private final TipoService tipoService;
 
-    public TipoRestController(TipoService tipoService) {
-        this.tipoService = tipoService;
-    }
 
     @PostMapping
     public ResponseEntity<?> criarTipo(@Valid @RequestBody Tipo tipo, BindingResult bindingResult) {
