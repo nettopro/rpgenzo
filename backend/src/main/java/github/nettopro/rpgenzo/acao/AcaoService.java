@@ -1,12 +1,10 @@
-package github.nettopro.rpgenzo.service.acoes;
+package github.nettopro.rpgenzo.acao;
 
 import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import github.nettopro.rpgenzo.model.acoes.Acao;
-import github.nettopro.rpgenzo.repository.acoes.AcaoRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service

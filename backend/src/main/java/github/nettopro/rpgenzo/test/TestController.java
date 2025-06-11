@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.controller;
+package github.nettopro.rpgenzo.test;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

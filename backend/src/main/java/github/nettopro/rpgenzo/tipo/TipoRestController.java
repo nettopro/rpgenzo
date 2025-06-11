@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.controller.acoes;
+package github.nettopro.rpgenzo.tipo;
 
 import java.util.NoSuchElementException;
 
@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import github.nettopro.rpgenzo.model.acoes.Tipo;
-import github.nettopro.rpgenzo.service.acoes.TipoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
