@@ -25,22 +25,18 @@ public class TipoRestController {
 
 
     @PostMapping
-    public ResponseEntity<?> criarTipo(@Valid @RequestBody Tipo tipo, BindingResult bindingResult) {
+    public ResponseEntity<?> criarTipo(@Valid @RequestBody TipoRequest tipoRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
-
-        tipoService.criarESalvarTipo(tipo);
+        
+        tipoService.criarTipo(tipoRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body("Tipo criado com sucesso");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarTipo(@PathVariable("id") Long id) {
-        try {
-            tipoService.excluirTipo(id);
-            return ResponseEntity.noContent().build();
-        } catch (NoSuchElementException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-        }
+        tipoService.excluirTipo(id);
+        return ResponseEntity.noContent().build();
     }
 }
