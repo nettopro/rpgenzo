@@ -1,5 +1,6 @@
 package github.nettopro.rpgenzo.entidade.tipo;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -56,5 +57,12 @@ public class TipoService {
                 .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
                 
         return tipoMapper.toTipoResponse(tipoAtual);
+    }
+
+    public List<TipoResponse> buscarTodosTipos() {
+        return tipoRepository.findAll()
+                .stream()
+                .map(tipoMapper::toTipoResponse)
+                .toList();
     }
 }

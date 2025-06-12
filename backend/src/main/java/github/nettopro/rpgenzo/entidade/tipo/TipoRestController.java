@@ -1,5 +1,7 @@
 package github.nettopro.rpgenzo.entidade.tipo;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,5 +45,11 @@ public class TipoRestController {
     public ResponseEntity<TipoResponse> buscarTipoPorId(@PathVariable("id") Long id) {
         TipoResponse tipoResponse = tipoService.buscarTipoPorId(id);
         return ResponseEntity.ok(tipoResponse);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TipoResponse>> buscarTodosTipos() {
+        List<TipoResponse> tipos = tipoService.buscarTodosTipos();
+        return ResponseEntity.ok(tipos);
     }
 }
