@@ -9,4 +9,8 @@ public interface TipoMapper {
 
     TipoRequest toTipoRequest(Tipo tipo);
 
+    Tipo toTipo(TipoResponse tipoResponse);
+
+    TipoResponse toTipoResponse(Tipo tipo);
+
 }

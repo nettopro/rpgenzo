@@ -1,11 +1,11 @@
 package github.nettopro.rpgenzo.tipo;
 
-import java.util.Set;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TipoRepository extends JpaRepository<Tipo, Long> {
 
-    Set<Tipo> findByNomeIgnoreCase(String nome);
+    Optional<Tipo> findByNomeIgnoreCase(String nome);
     boolean existsByNome(String nome);
 }
