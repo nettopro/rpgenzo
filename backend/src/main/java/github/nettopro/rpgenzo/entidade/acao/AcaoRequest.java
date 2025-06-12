@@ -2,7 +2,6 @@ package github.nettopro.rpgenzo.entidade.acao;
 
 import java.util.Set;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -20,8 +19,7 @@ public class AcaoRequest {
     private String descricao;
 
     @NotEmpty(message = "Necessita de pelo menos um tipo na ação!")
-    @Valid
-    private Set<Long> acaoIdTipos;
+    private Set<Long> acaoTiposIds;
 
     @Min(value = 0, message = "Custo deve ser maior ou igual a zero!")
     private Byte acaoCusto;

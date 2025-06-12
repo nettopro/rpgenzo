@@ -1,0 +1,20 @@
+meta {
+  name: Atualizar Ação
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://localhost:8080/api/acoes/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Andar",
+    "descricao": "Você poderá se mover até uma quantidade de metros determinada por sua velocidade. Caso você esteja caído, você irá se levantar no lugar.",
+    "acaoCusto": 1,
+    "acaoTiposIds": [2]
+  }
+}

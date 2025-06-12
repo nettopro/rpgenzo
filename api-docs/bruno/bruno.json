@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "tipos",
+  "name": "rpgenzo",
   "type": "collection",
   "ignore": [
     "node_modules",
