@@ -22,11 +22,7 @@ public class TipoRestController {
 
 
     @PostMapping
-    public ResponseEntity<?> criarTipo(@Valid @RequestBody TipoRequest tipoRequest, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
-        }
-        
+    public ResponseEntity<String> criarTipo(@Valid @RequestBody TipoRequest tipoRequest, BindingResult bindingResult) { 
         tipoService.criarTipo(tipoRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body("Tipo criado com sucesso");
     }
