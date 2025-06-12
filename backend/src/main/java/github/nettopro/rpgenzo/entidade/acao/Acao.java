@@ -1,9 +1,9 @@
-package github.nettopro.rpgenzo.acao;
+package github.nettopro.rpgenzo.entidade.acao;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import github.nettopro.rpgenzo.tipo.Tipo;
+import github.nettopro.rpgenzo.entidade.tipo.Tipo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

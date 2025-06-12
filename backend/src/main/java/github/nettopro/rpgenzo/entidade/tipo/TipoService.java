@@ -1,12 +1,12 @@
-package github.nettopro.rpgenzo.tipo;
+package github.nettopro.rpgenzo.entidade.tipo;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import github.nettopro.rpgenzo.common.exception.EntidadeAlreadyExistsException;
-import github.nettopro.rpgenzo.common.exception.EntidadeNotFoundException;
+import github.nettopro.rpgenzo.entidade.exception.EntidadeAlreadyExistsException;
+import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service

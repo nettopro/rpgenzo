@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.common.exception;
+package github.nettopro.rpgenzo.entidade.exception;
 
 import lombok.Getter;
 

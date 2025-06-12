@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.tipo;
+package github.nettopro.rpgenzo.entidade.tipo;
 
 import org.mapstruct.Mapper;
 

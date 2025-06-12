@@ -16,8 +16,8 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import github.nettopro.rpgenzo.common.exception.EntidadeAlreadyExistsException;
-import github.nettopro.rpgenzo.common.exception.EntidadeNotFoundException;
+import github.nettopro.rpgenzo.entidade.exception.EntidadeAlreadyExistsException;
+import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 

@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.acao;
+package github.nettopro.rpgenzo.entidade.acao;
 
 import java.util.NoSuchElementException;
 

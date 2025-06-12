@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.tipo;
+package github.nettopro.rpgenzo.entidade.tipo;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
