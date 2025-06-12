@@ -1,18 +1,18 @@
 meta {
-  name: Criar Tipo
+  name: Atualizar Tipo
   type: http
-  seq: 2
+  seq: 3
 }
 
-post {
-  url: http://localhost:8080/api/tipos
+put {
+  url: http://localhost:8080/api/tipos/8
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "nome": "",
+    "nome": "Borogodo",
     "descricao": "asdasdsad"
   }
 }

@@ -27,6 +27,15 @@ public class TipoService {
         return tipoRepository.save(tipo);
     }
 
+    public Tipo atualizarTipo(Long id, TipoRequest tipoRequest) {
+        Tipo tipo = tipoRepository.findById(id)
+                .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
+
+        tipo.setNome(tipoRequest.getNome());
+        tipo.setDescricao(tipoRequest.getDescricao());
+        return tipoRepository.save(tipo);
+    }
+
     public void excluirTipo(Long id) {
         if(!tipoRepository.existsById(id)) {
             throw new EntidadeNotFoundException("Tipo não encontrado com ID " + id);
