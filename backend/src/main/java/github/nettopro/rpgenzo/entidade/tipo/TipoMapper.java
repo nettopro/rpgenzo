@@ -12,4 +12,6 @@ public interface TipoMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "acoes", ignore = true)
     void updateTipoFromRequest(TipoRequest tipoRequest, @MappingTarget Tipo tipo);
+
+    TipoResponse toTipoResponse(Tipo tipo);
 }

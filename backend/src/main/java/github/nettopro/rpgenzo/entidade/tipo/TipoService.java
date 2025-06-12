@@ -33,7 +33,8 @@ public class TipoService {
 
         if (!tipoAtual.getNome().equalsIgnoreCase(tipoRequest.getNome())) { 
             Optional<Tipo> tipoExistente = tipoRepository.findByNomeIgnoreCase(tipoRequest.getNome());
-            
+            // Verifica se já existe um tipo com o mesmo nome, mas com ID diferente
+            // Isso evita conflitos ao atualizar o nome de um tipo existente
             if (tipoExistente.isPresent() && !tipoExistente.get().getId().equals(id)) {
                 throw new EntidadeAlreadyExistsException("Tipo já existe com ID " + tipoExistente.get().getId());
             }
@@ -48,5 +49,12 @@ public class TipoService {
             throw new EntidadeNotFoundException("Tipo não encontrado com ID " + id);
         }
         tipoRepository.deleteById(id);
+    }
+
+    public TipoResponse buscarTipoPorId(Long id) {
+        Tipo tipoAtual = tipoRepository.findById(id)
+                .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
+                
+        return tipoMapper.toTipoResponse(tipoAtual);
     }
 }

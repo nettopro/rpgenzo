@@ -3,6 +3,7 @@ package github.nettopro.rpgenzo.entidade.tipo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,7 +21,6 @@ public class TipoRestController {
     
     private final TipoService tipoService;
 
-
     @PostMapping
     public ResponseEntity<String> criarTipo(@Valid @RequestBody TipoRequest tipoRequest) { 
         tipoService.criarTipo(tipoRequest);
@@ -37,5 +37,11 @@ public class TipoRestController {
     public ResponseEntity<Void> deletarTipo(@PathVariable("id") Long id) {
         tipoService.excluirTipo(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TipoResponse> buscarTipoPorId(@PathVariable("id") Long id) {
+        TipoResponse tipoResponse = tipoService.buscarTipoPorId(id);
+        return ResponseEntity.ok(tipoResponse);
     }
 }
