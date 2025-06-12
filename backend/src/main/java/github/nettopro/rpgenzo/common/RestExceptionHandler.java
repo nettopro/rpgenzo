@@ -30,13 +30,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
         String requestPath = ((ServletWebRequest) request).getRequest().getRequestURI();
 
-        ErrorResponse errorResponse = new ErrorResponse(
-            LocalDateTime.now(),
-            HttpStatus.NOT_FOUND.value(),
-            "Entidade não encontrada",
-            ex.getMessage(),
-            requestPath
-        );
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .timestamp(LocalDateTime.now())
+            .status(HttpStatus.NOT_FOUND.value())
+            .error("Entidade não encontrada")
+            .message(ex.getMessage())
+            .path(requestPath)
+            .build();
+
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
@@ -46,13 +47,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
         String requestPath = ((ServletWebRequest) request).getRequest().getRequestURI();
 
-        ErrorResponse errorResponse = new ErrorResponse(
-            LocalDateTime.now(),
-            HttpStatus.CONFLICT.value(),
-            "Entidade já existente",
-            ex.getMessage(),
-            requestPath
-        );
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .timestamp(LocalDateTime.now())
+            .status(HttpStatus.CONFLICT.value())
+            .error("Entidade já existe")
+            .message(ex.getMessage())
+            .path(requestPath)
+            .build();
+
         return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
     }
     
@@ -72,14 +74,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             (mensagem1, mensagem2) -> mensagem1
         ));
 
-    ErrorResponse errorResponse = new ErrorResponse(
-        LocalDateTime.now(),
-        status.value(),
-        "Erro de validação",
-        "Verifique os campos inválidos",
-        path,
-        validationErrors
-    );
+    ErrorResponse errorResponse = ErrorResponse.builder()
+        .timestamp(LocalDateTime.now())
+        .status(status.value())
+        .error("Erro de validação")
+        .message("Verifique os campos inválidos")
+        .path(path)
+        .validationErrors(validationErrors)
+        .build();
 
     return new ResponseEntity<>(errorResponse, headers, status);
     }
@@ -96,14 +98,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 ConstraintViolation::getMessage
             ));
 
-        ErrorResponse errorResponse = new ErrorResponse(
-            LocalDateTime.now(),
-            HttpStatus.BAD_REQUEST.value(),
-            "Erro de validação no banco de dados",
-            "Campos inválidos ao persistir entidade",
-            path,
-            errors
-        );
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .timestamp(LocalDateTime.now())
+            .status(HttpStatus.BAD_REQUEST.value())
+            .error("Erro de validação no banco de dados")
+            .message("Campos inválidos ao persistir entidade")
+            .path(path)
+            .validationErrors(errors)
+            .build();
 
         return ResponseEntity.badRequest().body(errorResponse);
     }
