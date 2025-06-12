@@ -68,10 +68,10 @@ public class Acao {
                 String descricao,String reacaoAcionamento, String requerimento) {
         this.nome = nome;
         this.descricao = descricao;
-        this.acaoCusto = acaoCusto != null ? acaoCusto : 0;
-        this.acaoLivreCusto = acaoLivreCusto != null ? acaoLivreCusto : 0;
-        this.reacaoAcionamento = reacaoAcionamento != null ? reacaoAcionamento : "";
-        this.requerimento = requerimento != null ? requerimento : "";
+        this.acaoCusto = acaoCusto;
+        this.acaoLivreCusto = acaoLivreCusto;
+        this.reacaoAcionamento = reacaoAcionamento;
+        this.requerimento = requerimento;
     }
 
 }

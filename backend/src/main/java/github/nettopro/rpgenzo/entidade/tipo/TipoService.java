@@ -28,12 +28,19 @@ public class TipoService {
     }
 
     public Tipo atualizarTipo(Long id, TipoRequest tipoRequest) {
-        Tipo tipo = tipoRepository.findById(id)
+        Tipo tipoAtual = tipoRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
 
-        tipo.setNome(tipoRequest.getNome());
-        tipo.setDescricao(tipoRequest.getDescricao());
-        return tipoRepository.save(tipo);
+        if (!tipoAtual.getNome().equalsIgnoreCase(tipoRequest.getNome())) { 
+            Optional<Tipo> tipoExistente = tipoRepository.findByNomeIgnoreCase(tipoRequest.getNome());
+            
+            if (tipoExistente.isPresent() && !tipoExistente.get().getId().equals(id)) {
+                throw new EntidadeAlreadyExistsException("Tipo já existe com ID " + tipoExistente.get().getId());
+            }
+        }
+        
+        tipoMapper.updateTipoFromRequest(tipoRequest, tipoAtual);
+        return tipoRepository.save(tipoAtual);
     }
 
     public void excluirTipo(Long id) {
