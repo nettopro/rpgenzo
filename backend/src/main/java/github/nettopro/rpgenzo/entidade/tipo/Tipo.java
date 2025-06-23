@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
@@ -28,7 +29,8 @@ import lombok.ToString;
 public class Tipo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tipo_seq")
+    @SequenceGenerator(name = "tipo_seq", sequenceName = "tipo_seq", allocationSize = 10)
     @EqualsAndHashCode.Include
     @Setter(AccessLevel.NONE)
     private Long id;

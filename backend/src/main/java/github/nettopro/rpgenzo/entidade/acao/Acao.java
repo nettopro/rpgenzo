@@ -11,7 +11,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.JoinColumn;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -31,7 +34,8 @@ import lombok.ToString;
 public class Acao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acao_seq")
+    @SequenceGenerator(name = "acao_seq", sequenceName = "acao_seq", allocationSize = 10)
     @EqualsAndHashCode.Include
     @Setter(AccessLevel.NONE)
     private Long id;
@@ -45,10 +49,12 @@ public class Acao {
     private String descricao;
 
     //Relação muitos-para-muitos para os tipos das ações
-    @ManyToMany
-    @JoinTable(name = "acao_tipo",
-            joinColumns = @jakarta.persistence.JoinColumn(name = "acao_id"),
-            inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "tipo_id"))
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "acao_tipo",
+            joinColumns = @JoinColumn(name = "acao_id"),
+            inverseJoinColumns = @JoinColumn(name = "tipo_id")
+            )
     @NotEmpty(message = "Necessita de pelo menos um tipo!")
     @ToString.Exclude
     private Set<Tipo> acaoTipos = new HashSet<>();
