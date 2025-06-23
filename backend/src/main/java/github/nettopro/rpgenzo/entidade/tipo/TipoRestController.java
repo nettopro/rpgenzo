@@ -30,19 +30,19 @@ public class TipoRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizarTipo(@PathVariable("id") Long id, @Valid @RequestBody TipoRequest tipoRequest) {
+    public ResponseEntity<String> atualizarTipo(@PathVariable("id") Integer id, @Valid @RequestBody TipoRequest tipoRequest) {
         tipoService.atualizarTipo(id, tipoRequest);
         return ResponseEntity.ok("Tipo atualizado com sucesso");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarTipo(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> deletarTipo(@PathVariable("id") Integer id) {
         tipoService.excluirTipo(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TipoResponse> buscarTipoPorId(@PathVariable("id") Long id) {
+    public ResponseEntity<TipoResponse> buscarTipoPorId(@PathVariable("id") Integer id) {
         TipoResponse tipoResponse = tipoService.buscarTipoPorId(id);
         return ResponseEntity.ok(tipoResponse);
     }

@@ -27,7 +27,7 @@ public abstract class AcaoMapper {
     public abstract Acao toAcao(AcaoRequest acaoRequest);
 
     @Named("mapTipoIdsToTipos")
-    protected Set<Tipo> mapTipoIdsToTipos(Set<Long> tipoIds) {
+    protected Set<Tipo> mapTipoIdsToTipos(Set<Integer> tipoIds) {
         if (tipoIds == null || tipoIds.isEmpty()) {
             return Set.of();
         }

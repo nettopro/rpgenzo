@@ -28,7 +28,7 @@ public class AcaoService {
         return acaoRepository.save(acao);
     }
 
-    public Acao atualizarAcao(Long id, AcaoRequest acaoRequest) {
+    public Acao atualizarAcao(Integer id, AcaoRequest acaoRequest) {
         Acao acaoAtual = acaoRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNotFoundException("Ação não encontrada com ID " + id));
         if (!acaoAtual.getNome().equalsIgnoreCase(acaoRequest.getNome())) {
@@ -42,7 +42,7 @@ public class AcaoService {
         return acaoRepository.save(acaoAtual);
     }
 
-    public void excluirAcao(Long id) {
+    public void excluirAcao(Integer id) {
         if(!acaoRepository.existsById(id)) {
             throw new EntidadeNotFoundException("Tipo com ID " + id + " não encontrado.");
         }

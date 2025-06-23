@@ -28,7 +28,7 @@ public class TipoService {
         return tipoRepository.save(tipo);
     }
 
-    public Tipo atualizarTipo(Long id, TipoRequest tipoRequest) {
+    public Tipo atualizarTipo(Integer id, TipoRequest tipoRequest) {
         Tipo tipoAtual = tipoRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
 
@@ -45,14 +45,14 @@ public class TipoService {
         return tipoRepository.save(tipoAtual);
     }
 
-    public void excluirTipo(Long id) {
+    public void excluirTipo(Integer id) {
         if(!tipoRepository.existsById(id)) {
             throw new EntidadeNotFoundException("Tipo não encontrado com ID " + id);
         }
         tipoRepository.deleteById(id);
     }
 
-    public TipoResponse buscarTipoPorId(Long id) {
+    public TipoResponse buscarTipoPorId(Integer id) {
         Tipo tipoAtual = tipoRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
                 

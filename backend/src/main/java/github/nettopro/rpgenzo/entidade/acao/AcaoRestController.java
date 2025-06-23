@@ -27,13 +27,13 @@ public class AcaoRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizarAcao(@PathVariable("id") Long id, @Valid @RequestBody AcaoRequest acaoRequest) {
+    public ResponseEntity<String> atualizarAcao(@PathVariable("id") Integer id, @Valid @RequestBody AcaoRequest acaoRequest) {
         acaoService.atualizarAcao(id, acaoRequest);
         return ResponseEntity.ok("Ação atualizada com sucesso");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarTipo(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> deletarTipo(@PathVariable("id") Integer id) {
         acaoService.excluirAcao(id);
         return ResponseEntity.noContent().build();
     }

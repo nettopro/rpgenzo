@@ -19,7 +19,7 @@ public class AcaoRequest {
     private String descricao;
 
     @NotEmpty(message = "Necessita de pelo menos um tipo na ação!")
-    private Set<Long> acaoTiposIds;
+    private Set<Integer> acaoTiposIds;
 
     @Min(value = 0, message = "Custo deve ser maior ou igual a zero!")
     private Byte acaoCusto;
