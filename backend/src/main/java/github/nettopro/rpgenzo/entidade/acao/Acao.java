@@ -38,7 +38,7 @@ public class Acao {
     @SequenceGenerator(name = "acao_seq", sequenceName = "acao_seq", allocationSize = 10)
     @EqualsAndHashCode.Include
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private Integer id;
 
     @Column(unique = true)
     @NotBlank(message = "Necessita de nome!")

@@ -33,7 +33,7 @@ public class Tipo {
     @SequenceGenerator(name = "tipo_seq", sequenceName = "tipo_seq", allocationSize = 10)
     @EqualsAndHashCode.Include
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private Integer id;
 
     @Column(unique = true)
     @NotBlank(message = "Necessita de nome!")
