@@ -15,6 +15,7 @@ public interface AcaoRepository extends JpaRepository<Acao, Integer> {
 
     Optional<Acao> findByNomeIgnoreCase(String nome);
 
+    ///Uso de projection para evitar o carregamento de entidades desnecessárias
     @Query("""
             SELECT new github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoProjection(
                 a.id,

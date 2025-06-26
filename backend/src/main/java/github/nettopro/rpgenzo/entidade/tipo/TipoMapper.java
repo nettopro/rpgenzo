@@ -12,6 +12,6 @@ public interface TipoMapper {
 
     @Mapping(target = "acoes", ignore = true)
     void updateTipoFromRequest(TipoRequest tipoRequest, @MappingTarget Tipo tipo);
-
+    //Todo: Remover responses do Mapper e usar Projections diretamente no Service
     TipoResponse toTipoResponse(Tipo tipo);
 }

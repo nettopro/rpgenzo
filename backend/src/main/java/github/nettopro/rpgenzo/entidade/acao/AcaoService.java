@@ -70,7 +70,7 @@ public class AcaoService {
         }
         
         AcaoComNomeDoTipoProjection projection = acaoProjection.get(0);
-
+        // Extrai os nomes dos tipos associados à ação
         Set<String> tipoNomes = acaoProjection.stream()
                 .map(AcaoComNomeDoTipoProjection::tipoNome)
                 .collect(Collectors.toSet());

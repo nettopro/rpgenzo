@@ -45,6 +45,6 @@ public abstract class AcaoMapper {
     @Mapping(target = "reacaoAcionamento", defaultValue = "")
     @Mapping(target = "requerimento", defaultValue = "")
     public abstract void updateAcaoFromRequest(AcaoRequest acaoRequest, @MappingTarget Acao acao);
-
+    //Todo: Remover responses do Mapper e usar Projections diretamente no Service
     public abstract AcaoSemTipoResponse toAcaoSemTipoResponse(Acao acao);
 }
