@@ -1,10 +1,15 @@
 package github.nettopro.rpgenzo.entidade.acao;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoProjection;
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoResponse;
 import github.nettopro.rpgenzo.entidade.acao.dto.AcaoRequest;
 import github.nettopro.rpgenzo.entidade.acao.dto.AcaoSemTipoResponse;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeAlreadyExistsException;
@@ -56,6 +61,33 @@ public class AcaoService {
                 .orElseThrow(() -> new EntidadeNotFoundException("Acao não encontrada com ID " + id));
                 
         return acaoMapper.toAcaoSemTipoResponse(acaoAtual);
+    }
+
+    public Optional<AcaoComNomeDoTipoResponse> buscarAcaoComNomeDoTipoPorId(Integer id) {
+        List<AcaoComNomeDoTipoProjection> acaoProjection = acaoRepository.findAcaoWithTipoNomeById(id);
+        if (acaoProjection.isEmpty()) {
+            throw new EntidadeNotFoundException("Ação não encontrada com ID " + id);
+        }
+        
+        AcaoComNomeDoTipoProjection projection = acaoProjection.get(0);
+
+        Set<String> tipoNomes = acaoProjection.stream()
+                .map(AcaoComNomeDoTipoProjection::tipoNome)
+                .collect(Collectors.toSet());
+
+        AcaoComNomeDoTipoResponse response = new AcaoComNomeDoTipoResponse(
+            projection.id(),
+            projection.nome(),
+            projection.descricao(),
+            projection.acaoCusto(),
+            projection.acaoLivreCusto(),
+            projection.reacaoAcionamento(),
+            projection.requerimento(),
+            tipoNomes
+        );
+
+        return Optional.of(response);
+                
     }
 }
 

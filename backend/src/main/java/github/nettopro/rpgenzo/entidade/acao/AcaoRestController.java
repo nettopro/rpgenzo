@@ -1,5 +1,7 @@
 package github.nettopro.rpgenzo.entidade.acao;
 
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoResponse;
 import github.nettopro.rpgenzo.entidade.acao.dto.AcaoRequest;
 import github.nettopro.rpgenzo.entidade.acao.dto.AcaoSemTipoResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
 
 @RestController
 @RequestMapping("/api/acoes")
@@ -46,4 +50,11 @@ public class AcaoRestController {
         AcaoSemTipoResponse acaoResponse = acaoService.buscarAcaoSemTipoPorId(id);
         return ResponseEntity.ok(acaoResponse);
     }
+
+    @GetMapping("/com-tipo/{id}")
+    public ResponseEntity<AcaoComNomeDoTipoResponse> buscarAcaoComNomeDoTipoPorId(@PathVariable("id") Integer id) {
+        Optional<AcaoComNomeDoTipoResponse> acaoResponse = acaoService.buscarAcaoComNomeDoTipoPorId(id);
+        return ResponseEntity.of(acaoResponse);
+    }
+    
 }
