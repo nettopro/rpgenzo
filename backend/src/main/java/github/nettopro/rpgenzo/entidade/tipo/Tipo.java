@@ -14,7 +14,6 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -45,11 +44,7 @@ public class Tipo {
 
     @ManyToMany(mappedBy = "acaoTipos")
     @ToString.Exclude
+    @Setter(AccessLevel.NONE)
     private Set<Acao> acoes = new HashSet<>();
-    
-    @Builder
-    public Tipo(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
-    }
+
 }

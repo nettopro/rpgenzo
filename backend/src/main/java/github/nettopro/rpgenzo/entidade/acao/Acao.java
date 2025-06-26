@@ -19,7 +19,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -68,17 +67,5 @@ public class Acao {
     private String reacaoAcionamento;
 
     private String requerimento;
-
-    @Builder
-    public Acao(String nome, Byte acaoCusto, Byte acaoLivreCusto, Set<Tipo> acaoTipos,
-                String descricao,String reacaoAcionamento, String requerimento) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.acaoCusto = acaoCusto;
-        this.acaoTipos = acaoTipos;
-        this.acaoLivreCusto = acaoLivreCusto;
-        this.reacaoAcionamento = reacaoAcionamento;
-        this.requerimento = requerimento;
-    }
 
 }

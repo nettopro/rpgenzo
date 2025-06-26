@@ -7,9 +7,9 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface TipoMapper {
 
+    @Mapping(target = "acoes", ignore = true)
     Tipo toTipo(TipoRequest tipoRequest);
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "acoes", ignore = true)
     void updateTipoFromRequest(TipoRequest tipoRequest, @MappingTarget Tipo tipo);
 

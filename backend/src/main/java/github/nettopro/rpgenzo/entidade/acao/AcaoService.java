@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoRequest;
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoSemTipoResponse;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeAlreadyExistsException;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -47,6 +49,13 @@ public class AcaoService {
             throw new EntidadeNotFoundException("Tipo com ID " + id + " não encontrado.");
         }
         acaoRepository.deleteById(id);
+    }
+
+    public AcaoSemTipoResponse buscarAcaoSemTipoPorId(Integer id) {
+        Acao acaoAtual = acaoRepository.findById(id)
+                .orElseThrow(() -> new EntidadeNotFoundException("Acao não encontrada com ID " + id));
+                
+        return acaoMapper.toAcaoSemTipoResponse(acaoAtual);
     }
 }
 

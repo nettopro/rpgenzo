@@ -9,6 +9,8 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoRequest;
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoSemTipoResponse;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
 import github.nettopro.rpgenzo.entidade.tipo.Tipo;
 import github.nettopro.rpgenzo.entidade.tipo.TipoRepository;
@@ -20,10 +22,10 @@ public abstract class AcaoMapper {
     protected TipoRepository tipoRepository;
 
     @Mapping(target = "acaoTipos", source = "acaoTiposIds", qualifiedByName = "mapTipoIdsToTipos")
-    @Mapping(target = "acaoCusto", source = "acaoCusto", defaultValue = "0")
-    @Mapping(target = "acaoLivreCusto", source = "acaoLivreCusto", defaultValue = "0")
-    @Mapping(target = "reacaoAcionamento", source = "reacaoAcionamento", defaultValue = "")
-    @Mapping(target = "requerimento", source = "requerimento", defaultValue = "")
+    @Mapping(target = "acaoCusto", defaultValue = "0")
+    @Mapping(target = "acaoLivreCusto", defaultValue = "0")
+    @Mapping(target = "reacaoAcionamento", defaultValue = "")
+    @Mapping(target = "requerimento", defaultValue = "")
     public abstract Acao toAcao(AcaoRequest acaoRequest);
 
     @Named("mapTipoIdsToTipos")
@@ -37,11 +39,12 @@ public abstract class AcaoMapper {
                 .collect(Collectors.toSet());
     }
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "acaoTipos", source = "acaoTiposIds", qualifiedByName = "mapTipoIdsToTipos")
     @Mapping(target = "acaoCusto", defaultValue = "0")
     @Mapping(target = "acaoLivreCusto", defaultValue = "0")
     @Mapping(target = "reacaoAcionamento", defaultValue = "")
     @Mapping(target = "requerimento", defaultValue = "")
     public abstract void updateAcaoFromRequest(AcaoRequest acaoRequest, @MappingTarget Acao acao);
+
+    public abstract AcaoSemTipoResponse toAcaoSemTipoResponse(Acao acao);
 }

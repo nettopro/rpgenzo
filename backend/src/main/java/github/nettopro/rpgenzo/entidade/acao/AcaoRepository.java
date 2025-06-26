@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface AcaoRepository extends JpaRepository<Acao, Integer> {
 
     Optional<Acao> findByNomeIgnoreCase(String nome);
+
 }

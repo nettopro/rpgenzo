@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.entidade.acao;
+package github.nettopro.rpgenzo.entidade.acao.dto;
 
 import java.util.Set;
 
