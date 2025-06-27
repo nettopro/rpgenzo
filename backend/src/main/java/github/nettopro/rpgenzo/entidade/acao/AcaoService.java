@@ -56,11 +56,13 @@ public class AcaoService {
         acaoRepository.deleteById(id);
     }
 
-    public AcaoSemTipoResponse buscarAcaoSemTipoPorId(Integer id) {
-        Acao acaoAtual = acaoRepository.findById(id)
-                .orElseThrow(() -> new EntidadeNotFoundException("Acao não encontrada com ID " + id));
-                
-        return acaoMapper.toAcaoSemTipoResponse(acaoAtual);
+    public Optional<AcaoSemTipoResponse> buscarAcaoSemTipoPorId(Integer id) {
+        Optional<AcaoSemTipoResponse> acaoResponse = acaoRepository.findAcaoSemTipoById(id);
+        if (acaoResponse.isEmpty()) {
+            throw new EntidadeNotFoundException("Ação não encontrada com ID " + id);
+        }
+
+        return acaoResponse;
     }
 
     public Optional<AcaoComNomeDoTipoResponse> buscarAcaoComNomeDoTipoPorId(Integer id) {

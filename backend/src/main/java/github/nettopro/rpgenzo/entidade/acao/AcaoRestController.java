@@ -46,8 +46,8 @@ public class AcaoRestController {
     }
 
     @GetMapping("/sem-tipo/{id}")
-    public ResponseEntity<AcaoSemTipoResponse> buscarAcaoSemTipoPorId(@PathVariable("id") Integer id) {
-        AcaoSemTipoResponse acaoResponse = acaoService.buscarAcaoSemTipoPorId(id);
+    public ResponseEntity<Optional<AcaoSemTipoResponse>> buscarAcaoSemTipoPorId(@PathVariable("id") Integer id) {
+        Optional<AcaoSemTipoResponse> acaoResponse = acaoService.buscarAcaoSemTipoPorId(id);
         return ResponseEntity.ok(acaoResponse);
     }
 

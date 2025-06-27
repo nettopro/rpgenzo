@@ -10,7 +10,6 @@ import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import github.nettopro.rpgenzo.entidade.acao.dto.AcaoRequest;
-import github.nettopro.rpgenzo.entidade.acao.dto.AcaoSemTipoResponse;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
 import github.nettopro.rpgenzo.entidade.tipo.Tipo;
 import github.nettopro.rpgenzo.entidade.tipo.TipoRepository;
@@ -45,6 +44,5 @@ public abstract class AcaoMapper {
     @Mapping(target = "reacaoAcionamento", defaultValue = "")
     @Mapping(target = "requerimento", defaultValue = "")
     public abstract void updateAcaoFromRequest(AcaoRequest acaoRequest, @MappingTarget Acao acao);
-    //Todo: Remover responses do Mapper e usar Projections diretamente no Service
-    public abstract AcaoSemTipoResponse toAcaoSemTipoResponse(Acao acao);
+
 }
