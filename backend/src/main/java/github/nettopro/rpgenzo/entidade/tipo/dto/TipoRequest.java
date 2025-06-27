@@ -1,4 +1,4 @@
-package github.nettopro.rpgenzo.entidade.tipo;
+package github.nettopro.rpgenzo.entidade.tipo.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

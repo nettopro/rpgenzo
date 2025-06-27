@@ -4,6 +4,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
+import github.nettopro.rpgenzo.entidade.tipo.dto.TipoRequest;
+
 @Mapper(componentModel = "spring")
 public interface TipoMapper {
 

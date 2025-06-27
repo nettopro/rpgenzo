@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import github.nettopro.rpgenzo.entidade.tipo.dto.TipoResponse;
+
 public interface TipoRepository extends JpaRepository<Tipo, Integer> {
 
     Optional<Tipo> findByNomeIgnoreCase(String nome);

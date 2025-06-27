@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import github.nettopro.rpgenzo.entidade.exception.EntidadeAlreadyExistsException;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
+import github.nettopro.rpgenzo.entidade.tipo.dto.TipoRequest;
+import github.nettopro.rpgenzo.entidade.tipo.dto.TipoResponse;
 import lombok.RequiredArgsConstructor;
 
 @Service

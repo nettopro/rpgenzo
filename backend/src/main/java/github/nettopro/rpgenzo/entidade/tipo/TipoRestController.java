@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import github.nettopro.rpgenzo.entidade.tipo.dto.TipoRequest;
+import github.nettopro.rpgenzo.entidade.tipo.dto.TipoResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
