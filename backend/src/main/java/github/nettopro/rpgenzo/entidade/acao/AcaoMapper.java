@@ -9,6 +9,8 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoProjection;
+import github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoResponse;
 import github.nettopro.rpgenzo.entidade.acao.dto.AcaoRequest;
 import github.nettopro.rpgenzo.entidade.exception.EntidadeNotFoundException;
 import github.nettopro.rpgenzo.entidade.tipo.Tipo;
@@ -44,5 +46,8 @@ public abstract class AcaoMapper {
     @Mapping(target = "reacaoAcionamento", defaultValue = "")
     @Mapping(target = "requerimento", defaultValue = "")
     public abstract void updateAcaoFromRequest(AcaoRequest acaoRequest, @MappingTarget Acao acao);
+
+    @Mapping(target = "tipoNomes", ignore = true)
+    public abstract AcaoComNomeDoTipoResponse toAcaoComNomeDoTipoResponse(AcaoComNomeDoTipoProjection acaoProjection);
 
 }

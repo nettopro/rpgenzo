@@ -77,17 +77,8 @@ public class AcaoService {
                 .map(AcaoComNomeDoTipoProjection::tipoNome)
                 .collect(Collectors.toSet());
 
-        AcaoComNomeDoTipoResponse response = new AcaoComNomeDoTipoResponse(
-            projection.id(),
-            projection.nome(),
-            projection.descricao(),
-            projection.acaoCusto(),
-            projection.acaoLivreCusto(),
-            projection.reacaoAcionamento(),
-            projection.requerimento(),
-            tipoNomes
-        );
-
+        AcaoComNomeDoTipoResponse response = acaoMapper.toAcaoComNomeDoTipoResponse(projection);
+        response.setTipoNomes(tipoNomes);
         return Optional.of(response);
                 
     }

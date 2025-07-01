@@ -2,15 +2,16 @@ package github.nettopro.rpgenzo.entidade.acao.dto;
 
 import java.util.Set;
 
-public record AcaoComNomeDoTipoResponse(
-    Integer id,
-    String nome,
-    String descricao,
-    Byte acaoCusto,
-    Byte acaoLivreCusto,
-    String reacaoAcionamento,
-    String requerimento,
-    Set<String> tipoNomes
-) {
+import lombok.Data;
 
+@Data
+public class AcaoComNomeDoTipoResponse {
+    private Integer id;
+    private String nome;
+    private String descricao;
+    private Byte acaoCusto;
+    private Byte acaoLivreCusto;
+    private String reacaoAcionamento;
+    private String requerimento;
+    private Set<String> tipoNomes;
 }
