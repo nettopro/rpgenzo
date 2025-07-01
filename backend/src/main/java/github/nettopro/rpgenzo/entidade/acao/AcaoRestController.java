@@ -52,9 +52,9 @@ public class AcaoRestController {
     }
 
     @GetMapping("/com-tipo/{id}")
-    public ResponseEntity<AcaoComNomeDoTipoResponse> buscarAcaoComNomeDoTipoPorId(@PathVariable("id") Integer id) {
+    public ResponseEntity<Optional<AcaoComNomeDoTipoResponse>> buscarAcaoComNomeDoTipoPorId(@PathVariable("id") Integer id) {
         Optional<AcaoComNomeDoTipoResponse> acaoResponse = acaoService.buscarAcaoComNomeDoTipoPorId(id);
-        return ResponseEntity.of(acaoResponse);
+        return ResponseEntity.ok(acaoResponse);
     }
     
 }
