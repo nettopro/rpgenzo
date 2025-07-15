@@ -24,8 +24,7 @@ public class AcaoRequest {
     @Min(value = 0, message = "Custo deve ser maior ou igual a zero!")
     private Byte acaoCusto;
 
-    @Min(value = 0, message = "Custo de ação livre deve ser maior ou igual a zero!")
-    private Byte acaoLivreCusto;
+    private Boolean acaoLivreCusto;
 
     private String reacaoAcionamento;
 

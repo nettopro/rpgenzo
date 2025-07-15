@@ -10,7 +10,7 @@ public class AcaoComNomeDoTipoResponse {
     private String nome;
     private String descricao;
     private Byte acaoCusto;
-    private Byte acaoLivreCusto;
+    private Boolean acaoLivreCusto;
     private String reacaoAcionamento;
     private String requerimento;
     private Set<String> tipoNomes;

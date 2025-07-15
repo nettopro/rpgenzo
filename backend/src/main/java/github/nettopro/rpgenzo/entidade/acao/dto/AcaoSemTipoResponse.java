@@ -5,7 +5,7 @@ public record AcaoSemTipoResponse(
     String nome,
     String descricao,
     Byte acaoCusto,
-    Byte acaoLivreCusto,
+    Boolean acaoLivreCusto,
     String reacaoAcionamento,
     String requerimento
 ) {}
