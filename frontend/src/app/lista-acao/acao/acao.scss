@@ -1,0 +1,71 @@
+.acao-componente {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  background: #f9f9f9;
+}
+
+.acao-cabecalho {
+  cursor: pointer;
+}
+
+.acao-topo {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  margin-bottom: 8px;
+  min-height: 40px;
+}
+
+.acao-nome {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding-right: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acao-pontos {
+  display: flex;
+  justify-self: right;
+  gap: 4px;
+}
+
+.acao-condicoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.acao-tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tipo {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  color: #666;
+}
+
+.acao-corpo {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 2px solid #b9b9b9;
+}
+
+.acao-corpo h4 {
+  margin: 8px 0 4px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.acao-corpo p {
+  margin: 0 0 8px 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
