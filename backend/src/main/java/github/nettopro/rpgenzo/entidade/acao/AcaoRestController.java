@@ -1,5 +1,6 @@
 package github.nettopro.rpgenzo.entidade.acao;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -59,5 +60,11 @@ public class AcaoRestController {
         Optional<AcaoComNomeDoTipoResponse> acaoResponse = acaoService.buscarAcaoComNomeDoTipoPorId(id);
         return ResponseEntity.ok(acaoResponse);
     }
-    
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/com-tipo")
+    public ResponseEntity<List<AcaoComNomeDoTipoResponse>> buscarTodasAcoesComTipo() {
+        List<AcaoComNomeDoTipoResponse> acoes = acaoService.buscarTodasAcoesComTipo();
+        return ResponseEntity.ok(acoes);
+    }
 }

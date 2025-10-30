@@ -49,4 +49,20 @@ public interface AcaoRepository extends JpaRepository<Acao, Integer> {
             WHERE a.id = :id
             """)
     Optional<AcaoSemTipoResponse> findAcaoSemTipoById(Integer id);
+
+    @Query("""
+            SELECT new github.nettopro.rpgenzo.entidade.acao.dto.AcaoComNomeDoTipoProjection(
+                a.id,
+                a.nome,
+                a.descricao,
+                a.acaoCusto,
+                a.acaoLivreCusto,
+                a.reacaoAcionamento,
+                a.requerimento,
+                t.nome
+            )
+            FROM Acao a
+            LEFT JOIN a.acaoTipos t
+            """)
+    List<AcaoComNomeDoTipoProjection> findAllAcoesComTipo();
 }
