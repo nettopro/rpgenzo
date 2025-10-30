@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AcaoService } from './acao.service';
 
 @Component({
   selector: 'app-acao',

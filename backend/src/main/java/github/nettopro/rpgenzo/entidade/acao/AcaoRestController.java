@@ -25,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/acoes")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class AcaoRestController {
 
     private final AcaoService acaoService;
@@ -47,21 +48,18 @@ public class AcaoRestController {
         return ResponseEntity.noContent().build();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/sem-tipo/{id}")
     public ResponseEntity<Optional<AcaoSemTipoResponse>> buscarAcaoSemTipoPorId(@PathVariable("id") Integer id) {
         Optional<AcaoSemTipoResponse> acaoResponse = acaoService.buscarAcaoSemTipoPorId(id);
         return ResponseEntity.ok(acaoResponse);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/com-tipo/{id}")
     public ResponseEntity<Optional<AcaoComNomeDoTipoResponse>> buscarAcaoComNomeDoTipoPorId(@PathVariable("id") Integer id) {
         Optional<AcaoComNomeDoTipoResponse> acaoResponse = acaoService.buscarAcaoComNomeDoTipoPorId(id);
         return ResponseEntity.ok(acaoResponse);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/com-tipo")
     public ResponseEntity<List<AcaoComNomeDoTipoResponse>> buscarTodasAcoesComTipo() {
         List<AcaoComNomeDoTipoResponse> acoes = acaoService.buscarTodasAcoesComTipo();
