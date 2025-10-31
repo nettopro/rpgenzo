@@ -1,8 +1,7 @@
 <main>
   <div class="acao-lista">
-    <app-acao></app-acao>
-    <app-acao></app-acao>
-    <app-acao></app-acao>
-    <app-acao></app-acao>
+    @for (acao of acoes(); track acao.id) {
+    <app-acao [acao]="acao"></app-acao>
+    }
   </div>
 </main>

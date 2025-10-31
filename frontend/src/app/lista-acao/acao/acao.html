@@ -5,7 +5,7 @@
 >
   <div class="acao-cabecalho">
     <div class="acao-topo">
-      <div class="acao-nome">Atacar</div>
+      <div class="acao-nome">{{acao().nome}}</div>
 
       <div class="acao-pontos">
         <span class="icone-ponto">⚡</span>
@@ -29,13 +29,12 @@
   <div class="acao-corpo">
     <div class="requerimento">
       <h4>Requerimento</h4>
-      <p>Você não está caído.</p>
+      <p>{{acao().requerimento}}</p>
     </div>
     <div class="descricao">
       <h4>Descrição</h4>
       <p>
-        Você poderá se mover até uma quantidade de metros determinada por sua
-        velocidade. Caso você esteja caído, você irá se levantar no lugar.
+        {{acao().descricao}}
       </p>
     </div>
   </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { AcaoService } from './acao.service';
+import { Acao } from './acao.model';
 
 @Component({
   selector: 'app-acao',
@@ -7,7 +8,9 @@ import { AcaoService } from './acao.service';
   templateUrl: './acao.html',
   styleUrl: './acao.scss',
 })
-export class Acao {
+export class AcaoComponent {
+  acao = input.required<Acao>();
+
   acaoExpandida = false;
 
   toggleExpandirAcao() {
