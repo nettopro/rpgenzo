@@ -30,10 +30,18 @@
   </div>
   @if (acaoExpandida) {
   <div class="acao-corpo">
-    <div class="requerimento">
+    @if (acao().reacaoAcionamento.length!==0) {
+     <div class="acionamento">
+      <h4>Acionamento</h4>
+      <p>{{acao().reacaoAcionamento}}</p>
+    </div>
+    }
+    @if (acao().requerimento.length!==0) {
+     <div class="requerimento">
       <h4>Requerimento</h4>
       <p>{{acao().requerimento}}</p>
     </div>
+    }
     <div class="descricao">
       <h4>Descrição</h4>
       <p>
