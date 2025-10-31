@@ -8,21 +8,24 @@
       <div class="acao-nome">{{acao().nome}}</div>
 
       <div class="acao-pontos">
-        <span class="icone-ponto">⚡</span>
-        <span class="icone-ponto">⚡</span>
-        <span class="icone-ponto">⚡</span>
+        @for (i of getRange(acao().acaoCusto); track i) {
+          <span class="icone-ponto">⚡</span>
+        }
       </div>
 
       <div class="acao-condicoes">
-        <span class="icone-ponto">🆓</span>
-        <span class="icone-ponto">🔄</span>
+        @if (acao().reacaoAcionamento.length!==0) {
+          <span class="icone-ponto">🔄</span>
+        }
+        @if (acao().acaoLivreCusto) {
+          <span class="icone-ponto">🆓</span>
+        }
       </div>
     </div>
     <div class="acao-tipos">
-      <span class="tipo">Especial</span>
-      <span class="tipo">Ataque Físico</span>
-      <span class="tipo">Movimento</span>
-      <span class="tipo">Teste</span>
+      @for (tipo of acao().tipoNomes; track tipo) {
+        <span class="tipo">{{tipo}}</span>
+      }
     </div>
   </div>
   @if (acaoExpandida) {

@@ -16,4 +16,8 @@ export class AcaoComponent {
   toggleExpandirAcao() {
     this.acaoExpandida = !this.acaoExpandida;
   }
+
+  getRange(contagem: number): number[] {
+    return Array.from({ length: contagem }, (_, i) => i + 1);
+  }
 }
