@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { AcaoService } from './lista-acao/acao/acao.service';
 import { Acao } from './lista-acao/acao/acao.model';
 import { AcaoComponent } from './lista-acao/acao/acao';
+import { Filtro } from "./filtro/filtro";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AcaoComponent],
+  imports: [RouterOutlet, AcaoComponent, Filtro],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
