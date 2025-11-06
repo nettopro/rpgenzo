@@ -9,16 +9,16 @@
 
       <div class="acao-pontos">
         @for (i of getRange(acao().acaoCusto); track i) {
-          <span class="icone-ponto">⚡</span>
+          <img src="icones/acao/pontoDeAcao.svg" alt="Ponto De Ação" class="icone-ponto"/>
         }
       </div>
 
       <div class="acao-condicoes">
         @if (acao().reacaoAcionamento.length!==0) {
-          <span class="icone-ponto">🔄</span>
+          <img src="icones/acao/reacao.svg" alt="Ponto De Ação" class="icone-ponto"/>
         }
         @if (acao().acaoLivreCusto) {
-          <span class="icone-ponto">🆓</span>
+          <img src="icones/acao/acaoLivre.svg" alt="Ação Livre" class="icone-ponto"/>
         }
       </div>
     </div>
