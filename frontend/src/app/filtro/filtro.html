@@ -1,8 +1,23 @@
 <div class="filtro-componente">
-  <input type="text" placeholder="Filtrar ações..." class="barra-busca"/>
+  <input
+    type="text"
+    placeholder="Filtrar ações..."
+    class="barra-busca"
+    [(ngModel)]="filtro"
+  />
   <div class="slider-pontos-acao">
-    <img src="icones/acao/pontoDeAcao.svg" alt="Ponto De Ação" class="icone-filtro"/>
-    <input type="range" min="0" max="6" step="1" value="1" />
+    <img
+      src="icones/acao/pontoDeAcao.svg"
+      alt="Ponto De Ação"
+      class="icone-ponto"
+    />
+    <input
+      type="range"
+      min="0"
+      max="6"
+      step="1"
+      [(ngModel)]="pontoAcaoFiltro"
+    />
   </div>
   <img src="icones/acao/reacao.svg" alt="Ponto De Ação" class="icone-filtro" />
   <img src="icones/acao/acaoLivre.svg" alt="Ação Livre" class="icone-filtro" />
