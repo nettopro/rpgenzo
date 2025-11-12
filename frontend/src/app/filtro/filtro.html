@@ -19,8 +19,12 @@
       [(ngModel)]="pontoAcaoFiltro"
     />
   </div>
-  <img src="icones/acao/reacao.svg" alt="Ponto De Ação" class="icone-filtro" />
-  <img src="icones/acao/acaoLivre.svg" alt="Ação Livre" class="icone-filtro" />
+  <button type="button" (click)="toggleReacao()">
+    <img src="icones/acao/reacao.svg" alt="Reação" class="icone-filtro" />
+  </button>
+  <button type="button" (click)="toggleAcaoLivre()">
+    <img src="icones/acao/acaoLivre.svg" alt="Ação Livre" class="icone-filtro" />
+  </button>
   <select class="select-tipos">
     <option value="1">Ação 1</option>
     <option value="2">Ação 2</option>

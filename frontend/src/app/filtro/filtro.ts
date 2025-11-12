@@ -1,4 +1,4 @@
-import { Component, model, output } from '@angular/core';
+import { Component, model, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class Filtro {
   filtro = model<string>();
-
   pontoAcaoFiltro = model<number>();
+  reacaoFiltro = model<boolean>();
+  acaoLivreFiltro = model<boolean>();
+
+  toggleReacao() {
+    this.reacaoFiltro.update(v => !v);
+  }
+
+  toggleAcaoLivre() {
+    this.acaoLivreFiltro.update(v => !v);
+  }
 }

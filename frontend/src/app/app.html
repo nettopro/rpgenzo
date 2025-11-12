@@ -1,5 +1,9 @@
 <main>
-  <app-filtro [(filtro)]="textoFiltro" [(pontoAcaoFiltro)]="filtroPontosAcao" />
+  <app-filtro
+    [(filtro)]="textoFiltro"
+    [(pontoAcaoFiltro)]="filtroPontosAcao"
+    [(acaoLivreFiltro)]="filtroAcaoLivre"
+  />
   <div class="acao-lista">
     @for (acao of acoesFiltradas(); track acao.id) {
     <app-acao [acao]="acao"></app-acao>
