@@ -5,7 +5,12 @@ public record AcaoSemTipoResponse(
     String nome,
     String descricao,
     Byte acaoCusto,
-    Boolean acaoLivreCusto,
+    Boolean ehAcaoLivre,
+    Boolean ehReacao,
     String reacaoAcionamento,
-    String requerimento
+    String requerimento,
+    String sucessoCritico,
+    String sucesso,
+    String falha,
+    String falhaCritica
 ) {}

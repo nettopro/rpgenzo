@@ -42,6 +42,9 @@ public class Tipo {
     @NotBlank(message = "Necessita de descrição!")
     private String descricao;
 
+    @NotBlank(message = "Necessita de grupo!")
+    private String grupo;
+
     @ManyToMany(mappedBy = "acaoTipos")
     @ToString.Exclude
     @Setter(AccessLevel.NONE)

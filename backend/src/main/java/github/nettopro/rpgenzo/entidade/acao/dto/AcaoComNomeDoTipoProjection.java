@@ -5,9 +5,14 @@ public record AcaoComNomeDoTipoProjection(
     String nome,
     String descricao,
     Byte acaoCusto,
-    Boolean acaoLivreCusto,
+    Boolean ehAcaoLivre,
+    Boolean ehReacao,
     String reacaoAcionamento,
     String requerimento,
+    String sucessoCritico,
+    String sucesso,
+    String falha,
+    String falhaCritica,
     String tipoNome
 ) {
 

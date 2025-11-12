@@ -24,9 +24,8 @@ public abstract class AcaoMapper {
 
     @Mapping(target = "acaoTipos", source = "acaoTiposIds", qualifiedByName = "mapTipoIdsToTipos")
     @Mapping(target = "acaoCusto", defaultValue = "0")
-    @Mapping(target = "acaoLivreCusto", defaultValue = "false")
-    @Mapping(target = "reacaoAcionamento", defaultValue = "")
-    @Mapping(target = "requerimento", defaultValue = "")
+    @Mapping(target = "ehAcaoLivre", defaultValue = "false")
+    @Mapping(target = "ehReacao", defaultValue = "false")
     public abstract Acao toAcao(AcaoRequest acaoRequest);
 
     @Named("mapTipoIdsToTipos")
@@ -42,9 +41,8 @@ public abstract class AcaoMapper {
 
     @Mapping(target = "acaoTipos", source = "acaoTiposIds", qualifiedByName = "mapTipoIdsToTipos")
     @Mapping(target = "acaoCusto", defaultValue = "0")
-    @Mapping(target = "acaoLivreCusto", defaultValue = "false")
-    @Mapping(target = "reacaoAcionamento", defaultValue = "")
-    @Mapping(target = "requerimento", defaultValue = "")
+    @Mapping(target = "ehAcaoLivre", defaultValue = "false")
+    @Mapping(target = "ehReacao", defaultValue = "false")
     public abstract void updateAcaoFromRequest(AcaoRequest acaoRequest, @MappingTarget Acao acao);
 
     @Mapping(target = "tipoNomes", ignore = true)

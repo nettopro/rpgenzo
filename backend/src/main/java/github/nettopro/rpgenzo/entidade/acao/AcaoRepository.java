@@ -24,9 +24,14 @@ public interface AcaoRepository extends JpaRepository<Acao, Integer> {
                 a.nome,
                 a.descricao,
                 a.acaoCusto,
-                a.acaoLivreCusto,
+                a.ehAcaoLivre,
+                a.ehReacao,
                 a.reacaoAcionamento,
                 a.requerimento,
+                a.sucessoCritico,
+                a.sucesso,
+                a.falha,
+                a.falhaCritica,
                 t.nome
             )
             FROM Acao a
@@ -41,9 +46,14 @@ public interface AcaoRepository extends JpaRepository<Acao, Integer> {
                 a.nome,
                 a.descricao,
                 a.acaoCusto,
-                a.acaoLivreCusto,
+                a.ehAcaoLivre,
+                a.ehReacao,
                 a.reacaoAcionamento,
-                a.requerimento
+                a.requerimento,
+                a.sucessoCritico,
+                a.sucesso,
+                a.falha,
+                a.falhaCritica
             )
             FROM Acao a
             WHERE a.id = :id
@@ -56,9 +66,14 @@ public interface AcaoRepository extends JpaRepository<Acao, Integer> {
                 a.nome,
                 a.descricao,
                 a.acaoCusto,
-                a.acaoLivreCusto,
+                a.ehAcaoLivre,
+                a.ehReacao,
                 a.reacaoAcionamento,
                 a.requerimento,
+                a.sucessoCritico,
+                a.sucesso,
+                a.falha,
+                a.falhaCritica,
                 t.nome
             )
             FROM Acao a

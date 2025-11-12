@@ -13,4 +13,7 @@ public class TipoRequest {
     @NotBlank(message = "Necessita de descrição!")
     @Size(max = 2000, message = "Descrição não pode ter mais de 2000 caracteres!")
     private String descricao;
+
+    @NotBlank(message = "Necessita de grupo!")
+    private String grupo;
 }
