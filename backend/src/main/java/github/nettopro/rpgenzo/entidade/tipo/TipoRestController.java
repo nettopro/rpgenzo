@@ -54,4 +54,10 @@ public class TipoRestController {
         List<TipoResponse> tipos = tipoService.buscarTodosTipos();
         return ResponseEntity.ok(tipos);
     }
+
+    @GetMapping("/grupos")
+    public ResponseEntity<List<String>> buscarTodosGruposDistintos() {
+        List<String> grupos = tipoService.buscarTodosGruposDistintos();
+        return ResponseEntity.ok(grupos);
+    }
 }

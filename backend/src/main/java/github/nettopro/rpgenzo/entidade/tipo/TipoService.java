@@ -70,4 +70,8 @@ public class TipoService {
                 .map(tipoMapper::toTipoResponse)
                 .toList();
     }
+
+    public List<String> buscarTodosGruposDistintos() {
+        return tipoRepository.findDistinctGrupo();
+    }
 }

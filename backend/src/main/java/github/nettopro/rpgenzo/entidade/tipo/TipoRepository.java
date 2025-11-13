@@ -15,4 +15,7 @@ public interface TipoRepository extends JpaRepository<Tipo, Integer> {
 
     @Query("SELECT t FROM Tipo t")
     List<Tipo> findAllTipos();
+
+    @Query("SELECT DISTINCT t.grupo FROM Tipo t")
+    List<String> findDistinctGrupo();
 }
