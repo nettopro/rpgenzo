@@ -51,9 +51,7 @@ export class App implements OnInit {
     return this.acoes().filter(
       (acao) =>
         acao.nome.toLowerCase().includes(filtro) &&
-        acao.acaoCusto === this.filtroPontosAcao() &&
-        acao.acaoLivreCusto === this.filtroAcaoLivre() &&
-        (this.filtroReacao() ? acao.reacaoAcionamento?.length > 0 : true)
+        acao.acaoCusto == this.filtroPontosAcao()
     );
   });
 }

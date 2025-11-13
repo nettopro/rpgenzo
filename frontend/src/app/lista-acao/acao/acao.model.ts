@@ -3,8 +3,13 @@ export interface Acao {
   nome: string;
   descricao: string;
   acaoCusto: number;
-  acaoLivreCusto: boolean;
+  ehAcaoLivre: boolean;
+  ehReacao: boolean;
   reacaoAcionamento: string;
   requerimento: string;
+  sucessoCritico: string;
+  sucesso: string;
+  falha: string;
+  falhaCritica: string;
   tipoNomes: string[];
 }
