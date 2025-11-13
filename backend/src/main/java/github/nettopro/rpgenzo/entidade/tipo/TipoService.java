@@ -55,17 +55,19 @@ public class TipoService {
     }
 
     public TipoResponse buscarTipoPorId(Integer id) {
-        TipoResponse tipoEncontrado = tipoRepository.findTipoById(id)
+        Tipo tipoEncontrado = tipoRepository.findTipoById(id)
                 .orElseThrow(() -> new EntidadeNotFoundException("Tipo não encontrado com ID " + id));
             
-        return tipoEncontrado;
+        return tipoMapper.toTipoResponse(tipoEncontrado);
     }
 
     public List<TipoResponse> buscarTodosTipos() {
-        List<TipoResponse> listaTipos = tipoRepository.findAllTipos();
+        List<Tipo> listaTipos = tipoRepository.findAllTipos();
 
         if (listaTipos.isEmpty()) {
             throw new EntidadeNotFoundException("Nenhum tipo encontrado.");
-        } else return listaTipos;
+        } else return listaTipos.stream()
+                .map(tipoMapper::toTipoResponse)
+                .toList();
     }
 }

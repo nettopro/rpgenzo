@@ -6,6 +6,8 @@ import java.util.Set;
 import github.nettopro.rpgenzo.entidade.acao.Acao;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +15,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -42,8 +45,9 @@ public class Tipo {
     @NotBlank(message = "Necessita de descrição!")
     private String descricao;
 
-    @NotBlank(message = "Necessita de grupo!")
-    private String grupo;
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "Necessita de grupo!")
+    private TipoGrupo grupo;
 
     @ManyToMany(mappedBy = "acaoTipos")
     @ToString.Exclude
